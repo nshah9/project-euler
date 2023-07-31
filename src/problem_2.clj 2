@@ -1,0 +1,7 @@
+#!/usr/bin/env clj
+
+(ns problem_2)
+
+(def fibs (lazy-cat '(0 1) (map + fibs (drop 1 fibs))))
+
+(println (reduce + (take-while (partial >= 4000000) (filter even? fibs))))
